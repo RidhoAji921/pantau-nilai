@@ -3,7 +3,7 @@
     <a href="/"><h1 class="font-bold">Pantau Nilai</h1></a>
   </div>
   <div class="flex">
-    @if (!request()->is('login'))
+    @if (!request()->is('login') and !request()->is('/') )
       <a href="/login" class="hover:underline"><h3>login</h3></a>
     @endif
     <h1 class="font-bold mr-2 ml-1">{{ $slot }}</h1>

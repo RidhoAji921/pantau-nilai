@@ -13,11 +13,18 @@
     </x-navbar>
     <main class="flex justify-center items-center w-full h-[100vh]">
         <div class="w-[50vw] border-2 border-black p-2">
-            <form action="" method="post">
+            <form action="/login" method="post">
+                @csrf
+                @if (session()->has('registSuccess'))
+                <p class="w-full text-center">{{ session('registSuccess') }}</p>
+                @endif
                 <label for="username">Nama Pengguna</label><br>
-                <input type="text" id="username" name="username" class="w-full border-b border-black"><br>
+                <input type="text" id="username" name="username" class="w-full border-b border-black" autofocus required><br>
                 <label for="password">Password</label><br>
-                <input type="password" id="password" name="password" class="w-full border-b border-black"><br>
+                <input type="password" id="password" name="password" class="w-full border-b border-black" required><br>
+                @if (session()->has('loginError'))
+                    <p class="w-full text-red-700 text-center">{{ session('loginError') }}</p>
+                @endif
                 <div class="flex flex-col items-center">
                     <input type="submit" value="Login" class="hover:underline hover:text-gray-800">
                     <p>Belum punya akun? <a href="/signup" class="hover:underline hover:text-gray-800">daftar di sini</a></p>

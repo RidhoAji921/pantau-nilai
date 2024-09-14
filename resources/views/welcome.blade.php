@@ -9,35 +9,16 @@
 </head>
 <body>
   <x-navbar>
-    <x-slot:icon><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-layout-dashboard"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1" /><path d="M5 16h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1" /><path d="M15 12h4a1 1 0 0 1 1 1v6a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-6a1 1 0 0 1 1 -1" /><path d="M15 4h4a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1v-2a1 1 0 0 1 1 -1" /></svg></x-slot>
-    Dashboard
+    <x-slot:icon><svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-home"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0" /><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" /><path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg></x-slot>
+    Welcome
   </x-navbar>
-  <main class="px-2">
-    <h1 class="text-3xl font-bold">
-      Welcome! {{ $name }}
-    </h1>
-    <section class="grid grid-cols-4 gap-2">
-      <x-subject-card>
-        <x-slot:name>Matematika</x-slot:name>
-        <x-slot:lecturer>Mulyono</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Pemrograman</x-slot:name>
-        <x-slot:lecturer>Joko</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Biologi</x-slot:name>
-        <x-slot:lecturer>Jack</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Fisika</x-slot:name>
-        <x-slot:lecturer>Niggas</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Legal</x-slot:name>
-        <x-slot:lecturer>Iyh</x-slot:lecturer>
-      </x-subject-card>
-    </section>
+  <main class="flex flex-col justify-center items-center">
+    <div class="p-2 flex flex-col items-center">
+      <h1 class="text-3xl font-bold">Welcome to Pantau Nilai</h1>
+      <a href="/login"><h3 class="hover:underline">Login</h3></a>
+      <h3>Atau daftar <a href="/signup" class="hover:underline">di sini</a></h3>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis quis dignissimos perferendis! Non, pariatur nesciunt quis ut vero a ducimus aliquid laborum, assumenda autem est facere iste porro consequuntur reprehenderit!</p>
+    </div>
   </main>
 </body>
 </html>

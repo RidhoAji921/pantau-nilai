@@ -30,5 +30,7 @@ class RegisterController extends Controller
         // dd("Registrasi Berhasil!");
 
         User::create($validatedRequest);
+        session()->flash('registSuccess', 'Akun berhasil terdaftar! silahkan melakukan login');
+        return redirect('/login');
     }
 }
