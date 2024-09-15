@@ -26,4 +26,10 @@ class LoginController extends Controller
 
         return back()->with('loginError', 'Kesalahan pada username atau password');
     }
+    
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->regenerateToken();
+        return redirect('/');
+    }
 }

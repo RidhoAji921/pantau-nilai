@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   @vite('resources/css/app.css')
   {{-- <title>{{ $pagename }}</title> --}}
-  <title>Dashboard</title>
+  <title>Welcome</title>
 </head>
 <body>
   <x-navbar>

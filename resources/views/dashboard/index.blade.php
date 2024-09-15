@@ -14,11 +14,11 @@
   </x-navbar>
   <main class="px-2">
     <h1 class="text-3xl font-bold">
-      Welcome! {{ $name }}
+      Welcome! {{ auth()->user()->name }}
     </h1>
     <section class="grid grid-cols-4 gap-2">
       <x-subject-card>
-        <x-slot:name>Matematika</x-slot:name>
+        <x-slot:name>Matematika lanjut 2 semester 4 iya</x-slot:name>
         <x-slot:lecturer>Mulyono</x-slot:lecturer>
       </x-subject-card>
       <x-subject-card>
