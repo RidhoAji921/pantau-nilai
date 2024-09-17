@@ -13,37 +13,25 @@
     Dashboard
   </x-navbar>
   <main class="px-2">
-    <section class="flex justify-between mb-2">
+    <section class="flex justify-between mb-2 items-end">
       <h1 class="text-3xl font-bold">
         Welcome! {{ auth()->user()->name }}
       </h1>
       @if ($user->is_lecturer)
-        <button type="button" class="hover:underline">Buat Kelas</button>
+        <a href="create_subject" class="hover:underline h-full">Buat Kelas</a>
       @else
-        <button type="button" class="hover:underline">Gabung Kelas</button>
+        <a class="hover:underline">Gabung Kelas</a>
       @endif
     </section>
     <section class="grid grid-cols-4 gap-2">
-      <x-subject-card>
-        <x-slot:name>Matematika lanjut 2 semester 4 iya</x-slot:name>
-        <x-slot:lecturer>Mulyono</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Pemrograman</x-slot:name>
-        <x-slot:lecturer>Joko</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Biologi</x-slot:name>
-        <x-slot:lecturer>Jack</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Fisika</x-slot:name>
-        <x-slot:lecturer>Niggas</x-slot:lecturer>
-      </x-subject-card>
-      <x-subject-card>
-        <x-slot:name>Legal</x-slot:name>
-        <x-slot:lecturer>Iyh</x-slot:lecturer>
-      </x-subject-card>
+      @forelse ($subjects as $subject)
+        <x-subject-card>
+          <x-slot:name>{{ $subject->name }}</x-slot:name>
+          <x-slot:lecturer>{{ $subject->lecturer->name }}</x-slot:lecturer>
+        </x-subject-card>
+      @empty
+        
+      @endforelse
     </section>
   </main>
 </body>

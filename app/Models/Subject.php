@@ -9,6 +9,8 @@ class Subject extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id', ];
+
     public function lecturer()
     {
         return $this->belongsTo(User::class);
