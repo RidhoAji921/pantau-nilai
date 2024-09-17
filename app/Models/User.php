@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function lecturer_of_subjects()
+    {
+        return $this->hasMany(Subject::class, 'lecturer_id');
+    }
 }
