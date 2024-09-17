@@ -27,10 +27,11 @@
       @forelse ($subjects as $subject)
         <x-subject-card>
           <x-slot:name>{{ $subject->name }}</x-slot:name>
+          <x-slot:code>{{ $subject->join_code }}</x-slot:name>
           <x-slot:lecturer>{{ $subject->lecturer->name }}</x-slot:lecturer>
         </x-subject-card>
       @empty
-        
+        Anda belum membuat atau bergabung ke dalam kelas
       @endforelse
     </section>
   </main>

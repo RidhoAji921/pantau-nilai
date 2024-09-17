@@ -19,6 +19,7 @@ return new class extends Migration
                 table: 'users',
                 indexName: 'subjects_lecturer_id',
             );
+            $table->text('join_code');
             $table->timestamps();
         });
     }
