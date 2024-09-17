@@ -13,9 +13,16 @@
     Dashboard
   </x-navbar>
   <main class="px-2">
-    <h1 class="text-3xl font-bold">
-      Welcome! {{ auth()->user()->name }}
-    </h1>
+    <section class="flex justify-between mb-2">
+      <h1 class="text-3xl font-bold">
+        Welcome! {{ auth()->user()->name }}
+      </h1>
+      @if ($user->is_lecturer)
+        <button type="button" class="hover:underline">Buat Kelas</button>
+      @else
+        <button type="button" class="hover:underline">Gabung Kelas</button>
+      @endif
+    </section>
     <section class="grid grid-cols-4 gap-2">
       <x-subject-card>
         <x-slot:name>Matematika lanjut 2 semester 4 iya</x-slot:name>

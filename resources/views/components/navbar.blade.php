@@ -6,7 +6,7 @@
     @auth()
       <form action="/logout" method="post">
         @csrf
-        <button type="submit">logout</button>
+        <button type="submit" class="hover:underline">logout</button>
       </form>
     @else
       @if (!request()->is('login') and !request()->is('welcome') )
