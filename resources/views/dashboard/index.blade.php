@@ -43,15 +43,28 @@
       </div>
     @endif
     <section class="grid grid-cols-4 gap-2">
-      @forelse ($subjects as $subject)
-        <x-subject-card>
-          <x-slot:name>{{ $subject->name }}</x-slot:name>
-          <x-slot:code>{{ $subject->join_code }}</x-slot:name>
-          <x-slot:lecturer>{{ $subject->lecturer->name }}</x-slot:lecturer>
-        </x-subject-card>
-      @empty
-        Anda belum membuat atau bergabung ke dalam kelas
-      @endforelse
+      @if ($user->is_lecturer)
+        @forelse ($subjects as $subject)
+          <x-subject-card-lecturer>
+            <x-slot:name>{{ $subject->name }}</x-slot:name>
+            <x-slot:code>{{ $subject->join_code }}</x-slot:name>
+            <x-slot:lecturer>{{ $subject->lecturer->name }}</x-slot:lecturer>
+            <x-slot:students>{{ $subject->students->count() }}</x-slot:students>
+          </x-subject-card>
+        @empty
+          Anda belum membuat kelas
+        @endforelse
+      @else
+        @forelse ($subjects as $subject)
+          <x-subject-card>
+            <x-slot:name>{{ $subject->name }}</x-slot:name>
+            <x-slot:code>{{ $subject->join_code }}</x-slot:name>
+            <x-slot:lecturer>{{ $subject->lecturer->name }}</x-slot:lecturer>
+          </x-subject-card>
+        @empty
+          Anda belum bergabung ke dalam kelas
+        @endforelse
+      @endif
     </section>
   </main>
 </body>
