@@ -19,7 +19,7 @@ Route::get('/welcome', function () {
     return view('welcome');
 })->middleware('guest');
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name("dashboard")->middleware('auth');
 
 Route::get('/signup', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/signup', [RegisterController::class, 'store']);
@@ -30,3 +30,4 @@ Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/create_subject', [SubjectController::class, 'createIndex']);
 Route::post('/create_subject', [SubjectController::class, 'store']);
+Route::post('/join_subject', [SubjectController::class, 'join']);

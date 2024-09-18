@@ -28,4 +28,21 @@ class SubjectController extends Controller
         Subject::create($validatedRequest);
         return redirect('/dashboard');
     }
+
+    public function join(Request $request){
+        $validatedRequest = $request->validate([
+            'code' => 'required|string|exists:subjects,join_code',
+        ]);
+
+        if($validatedRequest){
+            // dd("Berhasil Join");
+            $subject = Subject::where('join_code', $request->code)->first();
+            
+            if ($subject->students()->where('user_id', Auth::id())->exists()) {
+                return redirect()->back()->with('join_error', 'Anda Sudah Berada Di Kelas Ini');
+            }
+            $subject->students()->attach(Auth::id());
+            return redirect()->route('dashboard')->with('join_success', "Anda Berhasil Bergabung Ke Kelas {$subject->name}");
+        }
+    }
 }

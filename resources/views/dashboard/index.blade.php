@@ -20,9 +20,28 @@
       @if ($user->is_lecturer)
         <a href="create_subject" class="hover:underline h-full">Buat Kelas</a>
       @else
-        <a class="hover:underline">Gabung Kelas</a>
+        <form action="join_subject" method="post">
+          @csrf
+          <input type="text" id="code" name="code" required value="{{ old('code') }}" class="border border-black rounded-lg p-[1px]">
+          <input type="submit" value="Join" class="hover:underline hover:text-gray-800">
+        </form>
       @endif
     </section>
+    @error('code')
+      <div class="flex justify-end">
+        <p class="text-red-800">Kode Kelas Yang Anda Masukkan Tidak Ada!!</p>
+      </div>
+    @enderror
+    @if (session()->has('join_error'))
+      <div class="flex justify-end">
+        <p class="text-red-800">{{ session("join_error") }}</p>
+      </div>
+    @endif
+    @if (session()->has('join_success'))
+      <div class="flex justify-end">
+        <p class="text-green-800">{{ session("join_success") }}</p>
+      </div>
+    @endif
     <section class="grid grid-cols-4 gap-2">
       @forelse ($subjects as $subject)
         <x-subject-card>

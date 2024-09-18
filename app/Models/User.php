@@ -27,6 +27,9 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+    protected $casts = [
+        'is_lecturer' => 'boolean',
+    ];
 
     // protected $fillable = [
     //     // other fields
@@ -49,5 +52,10 @@ class User extends Authenticatable
     public function lecturer_of_subjects()
     {
         return $this->hasMany(Subject::class, 'lecturer_id');
+    }
+
+    public function student_of_subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'subject_user');
     }
 }
